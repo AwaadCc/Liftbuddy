@@ -1,0 +1,7 @@
+{
+  "name": "Liftbuddy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
