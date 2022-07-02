@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tracking
+    </ion-title>
+  <ion-buttons slot="primary">
+    <ion-button [routerLink]="['/tabs/home']">
+      <ion-icon slot="icon-only" name="refresh-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="container" >
+  <ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Record your calories</ion-card-subtitle>
+    <ion-card-title>Welcome to Tracking!</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    An important part of fitness and health is keeping track of your macronutrients.  Use this tab to constantly keep track of them.<br><br>
+    The recommended way is to make one post per day and to update the post as you eat your meals.<br><br> 
+    *To View Changes Use Refresh Button<br>
+    *To Update Press Text
+  </ion-card-content>
+</ion-card>
+
+  <ng-container *ngIf="!isEmpty()">
+  <ion-card *ngFor="let item of list; trackBy:trackElement" [style.background-color]="item.color">
+    <ion-card-header>
+                   <ion-button size="small" fill="outline" (click) = "updateItem(item)">Edit</ion-button>
+    <ion-card-subtitle>{{item.lastUpdated | date: 'medium'}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content style="padding-top:0; white-space: pre-line;">
+      {{item.value}}
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+    <ion-icon name="add-circle" class="addBtn" [routerLink]="['/add-note']" ></ion-icon>
+</ion-content>

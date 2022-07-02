@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{headerLabel}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)= "clearInput()">
+      <ion-icon name="refresh-circle" ></ion-icon>
+    </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+     <ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>New Session</ion-card-subtitle>
+    <ion-card-title>Track your lifts!</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    Example of how to post:<br>
+    Breakfast: 30g protein, 40g carbs, 10g fat<br>
+    Lunch: 40g protein, 30g carbs, 25g fat<br>
+    Dinner: 45g protein, 40g carbs, 20g fat<br>
+  </ion-card-content>
+</ion-card> 
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-textarea auto-grow="true" #textInput (click) = "showKeyboard()"></ion-textarea>   
+      </ion-col>
+</ion-row>
+
+<br>
+<ion-row class="buttons">
+    <ion-icon name="checkmark-circle" class="iconSize" (click) = "saveNote()"></ion-icon>
+    <ion-icon name="close-circle" class="iconSize" [routerLink] = "['/tabs/home']" style="margin-left: 30px;"></ion-icon>
+    <ion-icon name="remove-circle" class="iconSize" (click) = "deleteNote()" *ngIf="enableDelete" style="margin-left: 30px;"></ion-icon>
+    </ion-row>
+  </ion-grid>
+</ion-content>

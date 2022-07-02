@@ -1,17 +1,42 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" mode="ios">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content id="container" [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Hello there!</ion-card-subtitle>
+    <ion-card-title>Welcome to Liftbuddy!</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    A simple app to help you stay or get in shape and reach all of your fitness goals! Take your time to explore the app and get used to the layout and read the content!
+  </ion-card-content>
+</ion-card>
+<ion-list>
+  <ion-item button (click)="goInfo()">
+    <ion-label>Info Page</ion-label>
+  </ion-item>
+</ion-list>
+<ion-card>
+  <img src="https://static01.nyt.com/images/2019/11/26/well/voices-weightlifting/voices-weightlifting-superJumbo.jpg?quality=75&auto=webp" />
+  <ion-card-header>
+    <ion-card-subtitle>Brad Stulberg</ion-card-subtitle>
+    <ion-card-title>The Zen of Weight Lifting</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   One of my favorite movements at the gym is called a farmer’s carry. You hold a heavy weight — for me, around 95 pounds — in each hand and attempt to walk with a solid, upright posture for between 30 and 60 seconds. <br>Once, while my workout partners and I were carrying, as we say, at our local YMCA, an older gentleman enthusiastically asked, “What’s it for?” I was quick to explain that farmer’s carries work your grip, core, arms, legs and even cardiovascular system — an utterly elegant full-body exercise. But the man wasn’t satisfied. “What’s any of it for?” he exclaimed, alluding to the two hours I spend repetitively moving iron every Monday, Wednesday and Friday morning.
+   <br><br>
+   <ion-button expand="block" href="https://www.nytimes.com/2019/11/22/well/move/the-zen-of-weight-lifting.html">Continue Reading!</ion-button>
+  </ion-card-content>
+</ion-card>
 </ion-content>

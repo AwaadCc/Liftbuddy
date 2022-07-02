@@ -1,0 +1,6 @@
+{
+	"appId": "com.awaadc.liftbuddy",
+	"appName": "Liftbuddy",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
