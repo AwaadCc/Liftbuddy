@@ -68,7 +68,7 @@ export class AddNotePage implements OnInit, AfterViewInit {
         }
         this.arr.push(item);
         await this.storage.set('notes', this.arr);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/tabs/home']);
       }
     } else {
       const alert = await this.alertController.create({
@@ -90,7 +90,7 @@ export class AddNotePage implements OnInit, AfterViewInit {
     itemToUpdate.lastUpdated = Date.now();
     itemToUpdate.color = this.textInput.nativeElement.style.backgroundColor;
       await this.storage.set('notes', this.arr);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/tabs/home']);
   }
 
   async deleteNote() {
@@ -106,7 +106,7 @@ export class AddNotePage implements OnInit, AfterViewInit {
           this.arr.splice(itemToDeleteIndex, 1);
           console.log(this.arr);  
           await this.storage.set('notes', this.arr);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/tabs/home']);
         }
       },
       {

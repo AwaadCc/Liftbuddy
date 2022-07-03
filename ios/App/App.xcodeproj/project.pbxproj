@@ -73,6 +73,7 @@
 		504EC3061FED79650016851F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				56B2BCC2287150C8008F9CC6 /* alternative-icons */,
 				50379B222058CBB4000EE86E /* capacitor.config.json */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
 				504EC30B1FED79650016851F /* Main.storyboard */,
@@ -83,6 +84,13 @@
 				50B271D01FEDC1A000F3C39B /* public */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		56B2BCC2287150C8008F9CC6 /* alternative-icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "alternative-icons";
 			sourceTree = "<group>";
 		};
 		7F8756D8B27F46E3366F6CEA /* Pods */ = {

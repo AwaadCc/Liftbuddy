@@ -20,8 +20,12 @@ const routes: Routes = [
         loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
       {
-        path: 'info',
+        path: 'tab1/info',
         loadChildren: () => import('../info/info.module').then(m => m.InfoPageModule)
+      },
+      {
+        path: 'tab1/page2',
+        loadChildren: () => import('../page2/page2.module').then(m => m.Page2PageModule)
       },
       {
         path: '',
@@ -35,6 +39,7 @@ const routes: Routes = [
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
   }
+
 ];
 
 @NgModule({

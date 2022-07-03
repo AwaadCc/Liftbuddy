@@ -26,9 +26,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'info',
+    path: 'tabs/tab1/info',
     loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule),
     runGuardsAndResolvers: 'always'
+  },
+  {
+    path: 'tabs/tab1/page2',
+    loadChildren: () => import('./page2/page2.module').then( m => m.Page2PageModule)
   },
 ];
 @NgModule({

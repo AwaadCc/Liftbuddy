@@ -11,8 +11,10 @@ export class Tab1Page {
   constructor(private router:Router) {}
 
   goInfo() {
-    this.router.navigate(['/tabs/info'])
+    this.router.navigate(['/tabs/tab1/info'])
   }
-
+  goPage2() {
+    this.router.navigate(['/tabs/tab1/page2'])
+  }
 
 }
