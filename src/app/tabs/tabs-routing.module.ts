@@ -28,6 +28,26 @@ const routes: Routes = [
         loadChildren: () => import('../page2/page2.module').then(m => m.Page2PageModule)
       },
       {
+        path: 'tab2/chest',
+        loadChildren: () => import('../chest/chest.module').then(m => m.ChestPageModule)
+      },
+      {
+        path: 'tab2/back',
+        loadChildren: () => import('../back/back.module').then(m => m.BackPageModule)
+      },
+      {
+        path: 'tab2/shoulders',
+        loadChildren: () => import('../shoulders/shoulders.module').then(m => m.ShouldersPageModule)
+      },
+      {
+        path: 'tab2/arms',
+        loadChildren: () => import('../arms/arms.module').then(m => m.ArmsPageModule)
+      },
+      {
+        path: 'tab2/legs',
+        loadChildren: () => import('../legs/legs.module').then(m => m.LegsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

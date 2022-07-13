@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref="tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chest</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-searchbar [(ngModel)]="Filter" spellcheck="true" autocorrect="on" showClearButton="true" debounce="100"></ion-searchbar>
+
+<ion-list inset="true">
+  <ion-item button (click)="openBrowser(items.url)" color="light" *ngFor="let items of chestList | filter:Filter">
+  <ion-thumbnail slot="start">
+    <img src="{{items.image}}">
+  </ion-thumbnail>
+  <ion-label>
+    {{items.name}}
+  </ion-label>
+</ion-item>
+</ion-list>
+</ion-content>

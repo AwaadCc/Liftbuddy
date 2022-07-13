@@ -31,8 +31,28 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always'
   },
   {
-    path: 'tabs/tab1/page2',
+    path: 'tabs/tab2/page2',
     loadChildren: () => import('./page2/page2.module').then( m => m.Page2PageModule)
+  },
+  {
+    path: 'tabs/tab2/chest',
+    loadChildren: () => import('./chest/chest.module').then( m => m.ChestPageModule)
+  },
+  {
+    path: 'tabs/tab2/back',
+    loadChildren: () => import('./back/back.module').then( m => m.BackPageModule)
+  },
+  {
+    path: 'shoulders',
+    loadChildren: () => import('./shoulders/shoulders.module').then( m => m.ShouldersPageModule)
+  },
+  {
+    path: 'arms',
+    loadChildren: () => import('./arms/arms.module').then( m => m.ArmsPageModule)
+  },
+  {
+    path: 'legs',
+    loadChildren: () => import('./legs/legs.module').then( m => m.LegsPageModule)
   },
 ];
 @NgModule({

@@ -9,10 +9,16 @@
     justify-content: flex-end;
 }
 ion-textarea {
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--ion-color-primary-tint);
-    min-height: 5em;
+    border-radius: 10px;
+    border-width: 10px;
+    background: var(--ion-color-light);
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-start: 20px;
+    --padding-end: 15px;
+}
+.content {
+    min-height: 10em;
 }
 
 .aquamarine {

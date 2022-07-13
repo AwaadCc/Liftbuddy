@@ -21,242 +21,44 @@
   </ion-card-content>
 </ion-card>
 -->
-<!-- Accordion -->
+<ion-list inset="true">
+  <ion-item [routerLink]="['/tabs/tab2/chest']" color="light">
+    Chest
+  </ion-item>
+  <ion-item [routerLink]="['/tabs/tab2/back']" color="light">
+    Back
+  </ion-item>
+  <ion-item [routerLink]="['/tabs/tab2/shoulders']" color="light">
+    Shoulders
+  </ion-item>
+  <ion-item [routerLink]="['/tabs/tab2/arms']" color="light">
+    Arms
+  </ion-item>
+  <ion-item [routerLink]="['/tabs/tab2/legs']" color="light">
+    Legs
+  </ion-item>
+</ion-list>
 
-<ion-accordion-group expand="inset">
+<ion-list-header>
+  Workout Plans
+</ion-list-header>
 
-<!-- Chest 
-      <ion-thumbnail slot="start">
-       <img src="https://static.thenounproject.com/png/1861015-200.png">
-      </ion-thumbnail>
--->
-  <ion-accordion value="first" >
-    <ion-item slot="header" color="light">
-    <ion-label><b>Chest</b></ion-label>
-    </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=vcBig73ojpE" color="light">
-  <ion-label>
-    Bench Press
-  </ion-label>
-  <ion-text>
-    Credit: Jeff Nippard
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=SrqOu55lrYU" color="light">
-  <ion-label>
-    Incline Bench Press
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=VmB1G1K7v94" color="light">
-  <ion-label>
-    Dumbell Chest Press
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=0G2_XV7slIg" color="light">
-  <ion-label>
-    Incline Dumbell Press
-  </ion-label>
-  <ion-text>
-    Credit: Mind Pump TV
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=Iwe6AmxVf7o" color="light">
-  <ion-label>
-    Cable Fly
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-  </ion-accordion>
-
-<!-- Back 
-<ion-thumbnail slot="start">
-       <img src="https://static.thenounproject.com/png/1861021-200.png">
-      </ion-thumbnail>
--->
-
-  <ion-accordion value="second">
-    <ion-item slot="header" color="light">
-    <ion-label><b>Back</b></ion-label>
-    </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=3YvfRx31xDE" color="light">
-  <ion-label>
-    Pull Up
-  </ion-label>
-  <ion-text>
-    Credit: Jeremy Ethier
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=ytGaGIn3SjE" color="light">
-  <ion-label>
-    Deadlift
-  </ion-label>
-  <ion-text>
-    Credit: Jeremy Ethier
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=kBWAon7ItDw" color="light">
-  <ion-label>
-    Barbell Row
-  </ion-label>
-  <ion-text>
-    Credit: Jeremy Ethier
-  </ion-text>
-  </ion-item>
-      <ion-item slot="content" href="https://www.youtube.com/watch?v=roCP6wCXPqo" color="light">
-  <ion-label>
-    Dumbell Row
-  </ion-label>
-  <ion-text>
-    Credit: Men's Health
-  </ion-text>
-  </ion-item>
-  </ion-accordion>
-
-<!-- Shoulders 
-      <ion-thumbnail slot="start">
-       <img src="https://cdn1.iconfinder.com/data/icons/human-organs-14/128/Shoulder-human-torso-chest-muscle-512.png">
-      </ion-thumbnail>
--->
-
-  <ion-accordion value="third">
-    <ion-item slot="header" color="light">
-    <ion-label><b>Shoulders</b></ion-label>
-    </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=qEwKCR5JCog" color="light">
-  <ion-label>
-    Seated Shoulder Press
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=2yjwXTZQDDI" color="light">
-  <ion-label>
-    Military Press
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=3VcKaXpzqRo" color="light">
-  <ion-label>
-    Lateral Raise
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-    <ion-item slot="content" href="https://www.youtube.com/watch?v=73WpaOMnhSU" color="light">
-  <ion-label>
-    Rear Delt Fly
-  </ion-label>
-  <ion-text>
-    Credit: mountaindog1
-  </ion-text>
-  </ion-item>
-  </ion-accordion>
-
-
-<!-- Arms 
-<ion-thumbnail slot="start">
-       <img src="https://cdn-icons-png.flaticon.com/512/30/30751.png">
-      </ion-thumbnail>
--->
-
-  <ion-accordion value="fourth">
-  <ion-item slot="header" color="light">
-  <ion-label><b>Arms</b></ion-label>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=QZEqB6wUPxQ" color="light">
-  <ion-label>
-    Barbell Curl
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-    <ion-item slot="content" href="https://www.youtube.com/watch?v=d_KZxkY_0cM" color="light">
-  <ion-label>
-    Skullcrusher
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-    <ion-item slot="content" href="https://www.youtube.com/watch?v=d_KZxkY_0cM" color="light">
-  <ion-label>
-    Tricep Dip
-  </ion-label>
-  <ion-text>
-    Credit: Buff Dudes
-  </ion-text>
-  </ion-item>
-    <ion-item slot="content" href="https://www.youtube.com/watch?v=soxrZlIl35U" color="light">
-  <ion-label>
-    Seated Incline Curl
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-  </ion-accordion>
-
-
-<!-- Legs 
-<ion-thumbnail slot="start">
-       <img src="https://static.thenounproject.com/png/1861016-200.png">
-      </ion-thumbnail>
--->
-
-  <ion-accordion value="five">
-    <ion-item slot="header" color="light"> 
-    <ion-label><b>Legs</b></ion-label>
-    </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=bEv6CCg2BC8&t=455s" color="light">
-  <ion-label>
-    Squat
-  </ion-label>
-  <ion-text>
-    Credit: Jeff Nippard
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=W1SD96lrudY" color="light">
-  <ion-label>
-    Leg Press
-  </ion-label>
-  <ion-text>
-    Credit: Muscle & Strength
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=JCXUYuzwNrM" color="light">
-  <ion-label>
-    Romanian Deadlift 
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-  <ion-item slot="content" href="https://www.youtube.com/watch?v=2C-uNgKwPLE" color="light">
-  <ion-label>
-    Bulgarian Split Squat
-  </ion-label>
-  <ion-text>
-    Credit: Scott Herman
-  </ion-text>
-  </ion-item>
-
-  </ion-accordion>
-</ion-accordion-group>
+  <swiper [virtual]="true" >
+<ng-template swiperSlide *ngFor="let items of workoutList; index as i">
+  <ion-card color="clear" style="height:250px;">
+  <ion-card-header color="light">
+    <ion-card-subtitle style="text-align: left;">{{items.name}}</ion-card-subtitle>
+    <ion-card-title></ion-card-title>
+  </ion-card-header>
+  <img src="{{items.image}}" (click)="openBrowser(items.url)">
+</ion-card>
+</ng-template>
+  </swiper>
 
 <!-- Articles -->
+<ion-list-header>
+  Form Articles
+</ion-list-header>
 <ion-card>
   <img src="https://blog.nasm.org/hubfs/bench-press-form.jpg" />
   <ion-card-header>
@@ -264,10 +66,9 @@
     <ion-card-title>Maximize Bench Press Form by Addressing These Issues Common Issues</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-   The ability to perform horizontal pushing patterns, like a chest press is an essential component of anyone's movement capability. Perhaps one of the most utilized methods for practicing this movement in the gym setting is the bench press. <br>
-   However, before worrying about the variety of programming options, loading parameters, and multiple ways to incorporate a bench press into a client’s resistance program, you must make sure a client can perform the bench press with proper form...
+   The ability to perform horizontal pushing patterns, like a chest press is an essential component of anyone's movement capability. Perhaps one of the most utilized methods for practicing this movement in the gym setting is the bench press. However, before worrying about the variety of programming options, loading parameters, and multiple ways to...
    <br><br>
-   <ion-button expand="block" href="https://blog.nasm.org/bench-press-form">Continue Reading!</ion-button>
+   <ion-button expand="block" (click)="openBrowser('https://blog.nasm.org/bench-press-form')">Continue Reading!</ion-button>
   </ion-card-content>
 </ion-card>
 
@@ -279,15 +80,9 @@
   </ion-card-header>
   <ion-card-content>
    One of the best exercises for you, whether you’re trying to build muscle or lose weight (or both) HAS to be the squat.
-  However, it’s also an exercise I see nearly EVERYBODY do incorrectly.
-  <br>
-  We do video form checks with every Online Coaching Client to make sure they’re squatting correctly, and we use a LOT of the same cues and instruction we cover in this guide! 
-  <br>
-  So have no fear…
-  <br>
-  After reading this big ass squat guide (pun intended, I suppose?) – part of our Strength 101 series – you can start performing this compound exercise safely and effectively...
+   However, it’s also an exercise I see nearly EVERYBODY do incorrectly. We do video form checks with every Online Coaching Client to make sure they’re squatting correctly, and we use a LOT of the same cues and instruction we cover in this guide! So have no fear...
    <br><br>
-   <ion-button expand="block" href="https://www.nerdfitness.com/blog/strength-training-101-how-to-squat-properly/">Continue Reading!</ion-button>
+   <ion-button expand="block" (click)="openBrowser('https://www.nerdfitness.com/blog/strength-training-101-how-to-squat-properly/')">Continue Reading!</ion-button>
   </ion-card-content>
 </ion-card>
 
@@ -298,8 +93,8 @@
     <ion-card-title>How to Deadlift Safely With Proper Form</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-  The deadlift is a true full body movement. While most people would consider it a “back” exercise, others will argue that it’s a “leg” exercise. In my book, it’s an everything exercise. And who am I? I’m Staci Ardison. I love the Legend of Zelda. This is me deadlifting 455 lbs (206 kg) at a bodyweight of 150 lbs (68 kg): The one and only Staci, showing you how to deadlift 455 pouds. Back in 2011, I could barely lift a pink dumbbell. But then I fell in love with heavy barbell training and the deadlift changed my life: Deadlifting helped Staci transform in the pictures above. I’m now a regular powerlifting competitor and a Senior Coach for the NF coaching program, where I help people like you hit their strength training goals. I’ve written this guide on Deadlifts because it’s the exercise that will change your life too. So why is the deadlift so great?   <br><br>
-   <ion-button expand="block" href="https://www.nerdfitness.com/blog/strength-training-101-the-deadlift/">Continue Reading!</ion-button>
+  The deadlift is a true full body movement. While most people would consider it a “back” exercise, others will argue that it’s a “leg” exercise. In my book, it’s an everything exercise. And who am I? I’m Staci Ardison. I love the Legend of Zelda. This is me deadlifting 455 lbs (206 kg) at a bodyweight of 150 lbs (68 kg): The one and only Staci, showing you how to deadlift 455 pouds. Back in 2011, I could barely lift a pink dumbbell...   <br><br>
+   <ion-button expand="block" (click)="openBrowser('https://www.nerdfitness.com/blog/strength-training-101-the-deadlift/')">Continue Reading!</ion-button>
   </ion-card-content>
 </ion-card>
 

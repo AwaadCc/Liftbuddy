@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
     });
   }
 
+
   ionViewDidEnter(){
     this.subscription = this.platform.backButton.subscribe(()=>{
         navigator['app'].exitApp();

@@ -14,8 +14,10 @@ export class AddNotePage implements OnInit, AfterViewInit {
 
   @ViewChild('textInput', {read: ElementRef}) textInput: ElementRef;
   @ViewChild('textInput', {read: IonTextarea}) textArea: IonTextarea;
+  @ViewChild('textInput2', {read: ElementRef}) textInput2: ElementRef;
+  @ViewChild('textInput2', {read: IonTextarea}) textArea2: IonTextarea;
   arr: StorageItem[] = [];
-  headerLabel = 'Add-note';
+  headerLabel = 'Add Note';
   state: any;
   enableDelete: boolean;
   constructor(private storage: Storage, private router: Router,
@@ -25,6 +27,7 @@ export class AddNotePage implements OnInit, AfterViewInit {
     await this.textArea.setFocus();
     if (this.state.obj) {
       this.textInput.nativeElement.value = this.state.obj.value;
+      this.textInput2.nativeElement.value = this.state.obj.title
       this.textInput.nativeElement.style.backgroundColor = this.state.obj.color;
     }
   }
@@ -34,7 +37,7 @@ export class AddNotePage implements OnInit, AfterViewInit {
     .subscribe((e) => {
       this.state = window.history.state;
       if (this.state.obj) {
-        this.headerLabel = 'Edit-note';
+        this.headerLabel = 'Edit Note';
         this.enableDelete = true;
       }
     });  
@@ -44,24 +47,30 @@ export class AddNotePage implements OnInit, AfterViewInit {
     await this.textArea.setFocus();
   }
 
+  async showKeyboard2() {
+    await this.textArea2.setFocus();
+  }
+
   clearInput() {
     this.textInput.nativeElement.value = '';    
+    this.textInput2.nativeElement.value = '';   
   }
 
   async saveNote() {
     const text = this.textInput.nativeElement.value as string;  
-    
+    const text2 = this.textInput2.nativeElement.value as string;
+
     if (text.trim().length > 0) {
       let id;
       this.arr = await this.storage.get('notes') as StorageItem[];
       if (this.state.obj) {
         id = this.state.obj.key;
-        await this.updateNote(id, text, this.arr);
+        await this.updateNote(id, text, text2, this.arr);
       } else {
         id = uuidv4();
         const time = Date.now();
         const color = this.textInput.nativeElement.style.backgroundColor;
-        const item = <StorageItem>{key: id, value: text, lastUpdated: time, color: color};
+        const item = <StorageItem>{key: id, value: text, title: text2, lastUpdated: time, color: color};
         
         if (!this.arr) {
           this.arr = [];
@@ -81,12 +90,14 @@ export class AddNotePage implements OnInit, AfterViewInit {
       })
       alert.present();
       this.textInput.nativeElement.value = '';
+      this.textInput2.nativeElement.value = '';
     }
 
   }
-  async updateNote(id: any, text: string, arr: StorageItem[]) {
+  async updateNote(id: any, text: string, text2: string, arr: StorageItem[]) {
     const itemToUpdate = arr.find((e) => e.key === id);
     itemToUpdate.value = text;
+    itemToUpdate.title = text2;
     itemToUpdate.lastUpdated = Date.now();
     itemToUpdate.color = this.textInput.nativeElement.style.backgroundColor;
       await this.storage.set('notes', this.arr);

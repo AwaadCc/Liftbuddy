@@ -40,16 +40,39 @@
   <ng-container *ngIf="!isEmpty()">
   <ion-card *ngFor="let item of list; trackBy:trackElement" [style.background-color]="item.color">
     <ion-card-header>
-    <ion-card-subtitle>{{item.lastUpdated | date: 'medium'}} </ion-card-subtitle>
+      <ion-row>
+        <ion-col pull="0.2">
+    <ion-card-subtitle>
+      {{item.lastUpdated | date: 'medium'}} 
+    </ion-card-subtitle>
+    <ion-card-title>
+      {{item.title}}
+    </ion-card-title>
+  </ion-col>
+  <ion-col push=".5">
+          <div class="right">
+  <ion-button slot="icon-only" size="small" fill="clear" (click) = "updateItem(item)">
+ <ion-icon name="create-outline"></ion-icon>
+  </ion-button>
+</div>
+</ion-col>
+</ion-row>
     </ion-card-header>
-
-    <ion-card-content style="padding-top:0; white-space: pre-line;">
+    <ion-card-content size="small" style="padding-top:0; white-space: pre-line;">
       {{item.value}}
-
     </ion-card-content>
-    <ion-button  size="small" fill="clear" (click) = "updateItem(item)">  <ion-icon name="create-outline"></ion-icon></ion-button>
-  </ion-card>
+    <ion-footer>
+      <ion-row>
+        <ion-col>
 
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
 </ng-container>
+<!--
+
+
+-->
 
 </ion-content>
