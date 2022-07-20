@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -19,4 +19,4 @@ import { AddNotePage } from './add-note.page';
   ],
   declarations: [AddNotePage]
 })
-export class AddNotePageModule {}
+export class AddNotePageModule {} 

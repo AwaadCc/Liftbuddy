@@ -11,7 +11,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="container" [fullscreen]="true">
+<ion-content id="container" [fullscreen]="true" [scrollEvents]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Home</ion-title>
@@ -57,6 +57,13 @@
    <ion-button expand="block" (click)="openBrowser('https://www.livestrong.com/article/473350-benefits-of-powerlifting/')">Continue Reading!</ion-button>
   </ion-card-content>
 </ion-card>
+
+<!-- FAB button to go top of page -->
+ <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="scrollToTop()" color="light">
+      <ion-icon name="arrow-up-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 <!-- Articles from database -->
 

@@ -11,9 +11,7 @@ export class TabsPage {
   @ViewChild(IonContent) private content: IonContent;
   constructor() {}
 
-  // scrollToTop(tabNumber: string) {
-  //   if (tabNumber == this.selectTab) {
-  //     this.events.publish('tabs', tabNumber);
-  //   }
-  // }
+  scrollToTop() {
+    this.content.scrollToTop(500);
+  }
 }

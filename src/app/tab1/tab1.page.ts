@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
@@ -10,7 +11,7 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 })
 export class Tab1Page implements OnInit {
   list: any;
-  
+  @ViewChild(IonContent) private content: IonContent;
 
   constructor(private iab:InAppBrowser, private router:Router, private dataService:DataService) {}
 
@@ -22,6 +23,10 @@ export class Tab1Page implements OnInit {
 
   openBrowser(url) {
     const browser = this.iab.create(url, '_blank', 'location=yes,toolbarposition=top,toolbartranslucent=no');
+  }
+
+  scrollToTop() {
+    this.content.scrollToTop(500);
   }
 
   goInfo() {

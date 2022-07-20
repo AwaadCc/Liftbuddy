@@ -23,7 +23,6 @@ export class BackPage implements OnInit {
   }
   openBrowser(url) {
     const browser = this.iab.create(url, '_blank', 'location=yes,toolbarposition=top,toolbartranslucent=no');
-
   }
 
 }
