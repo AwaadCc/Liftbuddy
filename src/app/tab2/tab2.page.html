@@ -55,6 +55,13 @@
 </ng-template>
   </swiper>
 
+  <!-- FAB button to go top of page -->
+ <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="scrollToTop()" color="light">
+      <ion-icon name="arrow-up-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 <!-- Articles -->
 <ion-list-header>
   Form Articles

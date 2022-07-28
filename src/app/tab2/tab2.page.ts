@@ -33,6 +33,10 @@ export class Tab2Page {
 
   }
 
+  scrollToTop() {
+    this.content.scrollToTop(500);
+  }
+
   slides = Array.from({ length: 1000 }).map(
     (el, index) => `Slide ${index + 1}`
   );

@@ -23,6 +23,8 @@
     </ion-toolbar>
   </ion-header>
 
+
+
   <ion-card>
   <ion-card-header>
     <ion-card-subtitle>Record your lifts</ion-card-subtitle>
@@ -37,6 +39,12 @@
   </ion-card-content>
 </ion-card>
 
+  <!-- FAB button to go bottom of page -->
+ <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="list?.length > 2">
+    <ion-fab-button (click)="scrollToBottom()" color="light">
+      <ion-icon name="arrow-down-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ng-container *ngIf="!isEmpty()">
   <ion-card *ngFor="let item of list; trackBy:trackElement" [style.background-color]="item.color">
     <ion-card-header>
@@ -74,5 +82,12 @@
 
 
 -->
+
+  <!-- FAB button to go top of page -->
+ <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="scrollToTop()" color="light">
+      <ion-icon name="arrow-up-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { ActivatedRoute, Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { StorageItem } from '../shared/storage-item';
-import { Platform } from '@ionic/angular';
+import { Platform, IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +10,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild(IonContent) private content: IonContent;
   list: StorageItem[];
   subscription: any;
   constructor(private storage: Storage, private router: Router,
@@ -49,6 +50,14 @@ ionViewWillLeave(){
     });
     this.router.navigate(['/edit-note'], {state: {obj: item}});
     
+  }
+
+  scrollToTop() {
+    this.content.scrollToTop(500);
+  }
+
+  scrollToBottom() {
+    this.content.scrollToBottom(500);
   }
 
 }
