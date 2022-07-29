@@ -1,18 +1,28 @@
 # Liftbuddy
-A simple fitness app
+![icon](/resources/ios/icon/icon-98@2x.png)
 
-To install download all files
+## About
+Liftbuddy is a simple fitness app made to help you learn more about the art of weightlifting.  The app includes articles to learn from, a workout database with videos and form improvement articles, and a tracking page to log and keep track of your lifting sessions.
 
-Then download ionic 6 and ionic capacitator
+## Installation
+There are two main ways to install LiftBuddy on to your phone. If you have an Apple Developer Account or used a service such as [UDID Registrations](https://www.udidregistrations.com) and are thus able to sideload more then 3 apps please use the iPA version.
 
-Run ionic capaciator build
+However if that is not the case due to not wanting to take up extra space for sideloading apps there is a PWA option. The Progressive Web App is essentially a web based version of the LiftBuddy app and works just like the iPA version. This version is preferred since it will not be counted towards the 3 apps Apple allows for normal sideloading.
 
-Once Xcode opens, fix signing issues
+| Name          | Link          |
+| ------------- | ------------- |
+| iPA  | [Install](https://github.com/AwaadCc/liftbuddy) |
+| PWA  | [Install](https://awaadcc.github.io/files/liftbuddy.mobileconfig)  |
 
-Then run on device
+## Understanding Routines
+The tracking tab allows you to save and load routines.
 
-OR
+The save function will save a .json file on to your device.
 
-Once ipa is published sideload using AltStore
+This can be renamed to whatever but normal scheme is title of routine + date.
 
-(Tutorial coming soon)
+The load function will allow you to browse filesystem for file.
+
+Only accepts .json and if not proper LiftBuddy routine format will not install properly.
+
+Best use is to make a folder with name Routines and save each routine there with an identifiable name.
