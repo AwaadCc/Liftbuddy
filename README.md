@@ -25,4 +25,4 @@ The load function will allow you to browse filesystem for file.
 
 Only accepts .json and if not proper LiftBuddy routine format will not install properly.
 
-Best use is to make a folder with name Routines and save each routine there with an identifiable name.
+Best way to use is to make a folder named Routines and save each routine there with an identifiable name.
