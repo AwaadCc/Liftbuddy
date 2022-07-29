@@ -9,7 +9,7 @@ There are two main ways to install LiftBuddy on to your phone. If you have an Ap
 
 However if that is not the case due to not wanting to take up extra space for sideloading apps there is a PWA option. The Progressive Web App is essentially a web based version of the LiftBuddy app and works just like the iPA version. This version is preferred since it will not be counted towards the 3 apps Apple allows for normal sideloading.
 
-| Name          | Link          | Version |
+| Type          | Link          | Version |
 | ------------- | ------------- | ------------- |
 | iPA  | [Install](https://github.com/AwaadCc/liftbuddy) | 1.1.2 |
 | PWA  | [Install](https://awaadcc.github.io/files/liftbuddy.mobileconfig)  | 1.1.2 |
