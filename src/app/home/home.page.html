@@ -1,9 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="secondary">
-    <ion-button [routerLink]="['/tabs/home']">
-      <ion-icon slot="icon-only" name="refresh-circle-outline"></ion-icon>
+    <ion-button id="click-trigger">
+      <!-- <ion-icon slot="icon-only" name="ellipsis-horizontal-outline"></ion-icon> -->
+      Options
     </ion-button>
+<ion-popover trigger="click-trigger" [dismissOnSelect]="true">
+  <ng-template>
+    <ion-content >
+      <ion-list>
+        <ion-item color="light" [detail]="false" [button]="true" (click)="save()">Save</ion-item>
+      <ion-item color="light" [detail]="false" [button]="true" id="load">Load</ion-item>
+
+        <ion-popover trigger="load" side="bottom">
+          <ng-template>
+            <ion-content>
+              <ion-list>
+                <ion-item color="light">
+                <input type="file" id="file-input" (change)="loadImageFromDevice($event)" accept="application/json"/>
+             </ion-item>
+              </ion-list>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-popover>
   </ion-buttons>
     <ion-title>
       Tracking
@@ -40,7 +64,7 @@
 </ion-card>
 
   <!-- FAB button to go bottom of page -->
- <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="list?.length > 2">
+ <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="list?.length > 1">
     <ion-fab-button (click)="scrollToBottom()" color="light">
       <ion-icon name="arrow-down-circle"></ion-icon>
     </ion-fab-button>

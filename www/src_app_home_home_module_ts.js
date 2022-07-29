@@ -96,13 +96,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "HomePage": () => (/* binding */ HomePage)
 /* harmony export */ });
 /* harmony import */ var _Users_awaadchaudhry_Desktop_Coding_Projects_Liftbuddy_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 1670);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 4929);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ 4929);
 /* harmony import */ var _home_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.page.html?ngResource */ 3853);
 /* harmony import */ var _home_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home.page.scss?ngResource */ 1020);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 2560);
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/storage */ 3506);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 124);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ 3819);
+/* harmony import */ var _awesome_cordova_plugins_file_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @awesome-cordova-plugins/file/ngx */ 5453);
+
 
 
 
@@ -112,10 +114,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HomePage = class HomePage {
-  constructor(storage, router, platform) {
+  constructor(storage, router, platform, file, loadingCtrl) {
     this.storage = storage;
     this.router = router;
     this.platform = platform;
+    this.file = file;
+    this.loadingCtrl = loadingCtrl;
   }
 
   ngOnInit() {
@@ -124,7 +128,7 @@ let HomePage = class HomePage {
     this.router.events.subscribe( /*#__PURE__*/function () {
       var _ref = (0,_Users_awaadchaudhry_Desktop_Coding_Projects_Liftbuddy_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* (e) {
         // If it is a NavigationEnd event re-initalise the component
-        if (e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_4__.NavigationEnd) {
+        if (e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_5__.NavigationEnd) {
           _this.list = yield _this.storage.get('notes');
           console.log(_this.list);
         }
@@ -178,23 +182,68 @@ let HomePage = class HomePage {
     this.content.scrollToBottom(500);
   }
 
+  save() {
+    // console.log(this.list);
+    this.stringlist = JSON.stringify(this.list); // console.log(this.stringlist);
+
+    const fileName = this.list[0].title + '_' + new Date().getMonth() + '_' + new Date().getDate() + '_' + new Date().getFullYear() + ''; // console.log(fileName);
+
+    var link = document.createElement('a');
+    link.download = fileName;
+    var blob = new Blob([this.stringlist], {
+      type: 'application/json'
+    });
+    link.href = window.URL.createObjectURL(blob);
+    link.click();
+  }
+
+  showLoading() {
+    var _this3 = this;
+
+    return (0,_Users_awaadchaudhry_Desktop_Coding_Projects_Liftbuddy_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      const loading = yield _this3.loadingCtrl.create({
+        message: 'Loading new routine...',
+        duration: 1500
+      });
+      loading.present();
+    })();
+  }
+
+  loadImageFromDevice(event) {
+    this.showLoading();
+    const inputfile = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsText(inputfile);
+    this.storage.remove('notes');
+    setTimeout(() => {
+      this.sm = reader.result;
+      this.list = JSON.parse(this.sm);
+      console.log(this.list);
+      this.storage.set('notes', this.list);
+    }, 1500);
+  }
+
 };
 
 HomePage.ctorParameters = () => [{
   type: _ionic_storage__WEBPACK_IMPORTED_MODULE_3__.Storage
 }, {
-  type: _angular_router__WEBPACK_IMPORTED_MODULE_4__.Router
+  type: _angular_router__WEBPACK_IMPORTED_MODULE_5__.Router
 }, {
-  type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.Platform
+  type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.Platform
+}, {
+  type: _awesome_cordova_plugins_file_ngx__WEBPACK_IMPORTED_MODULE_4__.File
+}, {
+  type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.LoadingController
 }];
 
 HomePage.propDecorators = {
   content: [{
-    type: _angular_core__WEBPACK_IMPORTED_MODULE_6__.ViewChild,
-    args: [_ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonContent]
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_7__.ViewChild,
+    args: [_ionic_angular__WEBPACK_IMPORTED_MODULE_6__.IonContent]
   }]
 };
-HomePage = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
+HomePage = (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__decorate)([(0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({
   selector: 'app-home',
   template: _home_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__,
   styles: [_home_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__]
@@ -3694,7 +3743,7 @@ module.exports = "#container {\n  position: relative;\n}\n\n#container .addBtn {
 /***/ ((module) => {
 
 "use strict";
-module.exports = "<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-buttons slot=\"secondary\">\n    <ion-button [routerLink]=\"['/tabs/home']\">\n      <ion-icon slot=\"icon-only\" name=\"refresh-circle-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n    <ion-title>\n      Tracking\n    </ion-title>\n  <ion-buttons slot=\"primary\">\n    <ion-button [routerLink]=\"['/add-note']\">\n      Add\n    </ion-button>\n  </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content id=\"container\" >\n    <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Tracking</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n\n\n  <ion-card>\n  <ion-card-header>\n    <ion-card-subtitle>Record your lifts</ion-card-subtitle>\n    <ion-card-title>Welcome to Tracking!</ion-card-title>\n  </ion-card-header>\n\n  <ion-card-content>\n    An important part of lifting is keeping track of your progress.  We recommended using this tab as a way of logging your workouts.<br><br>\n    The recommended way is to begin by making the first post your routine followed by a new post for every day you log.<br><br> \n    *If changes are not seens use refresh button<br>\n    *Example post format is in the add page\n  </ion-card-content>\n</ion-card>\n\n  <!-- FAB button to go bottom of page -->\n <ion-fab vertical=\"top\" horizontal=\"end\" slot=\"fixed\" *ngIf=\"list?.length > 2\">\n    <ion-fab-button (click)=\"scrollToBottom()\" color=\"light\">\n      <ion-icon name=\"arrow-down-circle\"></ion-icon>\n    </ion-fab-button>\n  </ion-fab>\n  <ng-container *ngIf=\"!isEmpty()\">\n  <ion-card *ngFor=\"let item of list; trackBy:trackElement\" [style.background-color]=\"item.color\">\n    <ion-card-header>\n      <ion-row>\n        <ion-col pull=\"0.2\">\n    <ion-card-subtitle>\n      {{item.lastUpdated | date: 'medium'}} \n    </ion-card-subtitle>\n    <ion-card-title>\n      {{item.title}}\n    </ion-card-title>\n  </ion-col>\n  <ion-col push=\".5\">\n          <div class=\"right\">\n  <ion-button slot=\"icon-only\" size=\"small\" fill=\"clear\" (click) = \"updateItem(item)\">\n <ion-icon name=\"create-outline\"></ion-icon>\n  </ion-button>\n</div>\n</ion-col>\n</ion-row>\n    </ion-card-header>\n    <ion-card-content size=\"small\" style=\"padding-top:0; white-space: pre-line;\">\n      {{item.value}}\n    </ion-card-content>\n    <ion-footer>\n      <ion-row>\n        <ion-col>\n\n        </ion-col>\n      </ion-row>\n    </ion-footer>\n  </ion-card>\n</ng-container>\n<!--\n\n\n-->\n\n  <!-- FAB button to go top of page -->\n <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\" >\n    <ion-fab-button (click)=\"scrollToTop()\" color=\"light\">\n      <ion-icon name=\"arrow-up-circle\"></ion-icon>\n    </ion-fab-button>\n  </ion-fab>\n\n</ion-content>";
+module.exports = "<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-buttons slot=\"secondary\">\n    <ion-button id=\"click-trigger\">\n      <!-- <ion-icon slot=\"icon-only\" name=\"ellipsis-horizontal-outline\"></ion-icon> -->\n      Options\n    </ion-button>\n<ion-popover trigger=\"click-trigger\" [dismissOnSelect]=\"true\">\n  <ng-template>\n    <ion-content >\n      <ion-list>\n        <ion-item color=\"light\" [detail]=\"false\" [button]=\"true\" (click)=\"save()\">Save</ion-item>\n      <ion-item color=\"light\" [detail]=\"false\" [button]=\"true\" id=\"load\">Load</ion-item>\n\n        <ion-popover trigger=\"load\" side=\"bottom\">\n          <ng-template>\n            <ion-content>\n              <ion-list>\n                <ion-item color=\"light\">\n                <input type=\"file\" id=\"file-input\" (change)=\"loadImageFromDevice($event)\" accept=\"application/json\"/>\n             </ion-item>\n              </ion-list>\n            </ion-content>\n          </ng-template>\n        </ion-popover>\n\n      </ion-list>\n    </ion-content>\n  </ng-template>\n</ion-popover>\n  </ion-buttons>\n    <ion-title>\n      Tracking\n    </ion-title>\n  <ion-buttons slot=\"primary\">\n    <ion-button [routerLink]=\"['/add-note']\">\n      Add\n    </ion-button>\n  </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content id=\"container\" >\n    <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Tracking</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n\n\n  <ion-card>\n  <ion-card-header>\n    <ion-card-subtitle>Record your lifts</ion-card-subtitle>\n    <ion-card-title>Welcome to Tracking!</ion-card-title>\n  </ion-card-header>\n\n  <ion-card-content>\n    An important part of lifting is keeping track of your progress.  We recommended using this tab as a way of logging your workouts.<br><br>\n    The recommended way is to begin by making the first post your routine followed by a new post for every day you log.<br><br> \n    *If changes are not seens use refresh button<br>\n    *Example post format is in the add page\n  </ion-card-content>\n</ion-card>\n\n  <!-- FAB button to go bottom of page -->\n <ion-fab vertical=\"top\" horizontal=\"end\" slot=\"fixed\" *ngIf=\"list?.length > 1\">\n    <ion-fab-button (click)=\"scrollToBottom()\" color=\"light\">\n      <ion-icon name=\"arrow-down-circle\"></ion-icon>\n    </ion-fab-button>\n  </ion-fab>\n  <ng-container *ngIf=\"!isEmpty()\">\n  <ion-card *ngFor=\"let item of list; trackBy:trackElement\" [style.background-color]=\"item.color\">\n    <ion-card-header>\n      <ion-row>\n        <ion-col pull=\"0.2\">\n    <ion-card-subtitle>\n      {{item.lastUpdated | date: 'medium'}} \n    </ion-card-subtitle>\n    <ion-card-title>\n      {{item.title}}\n    </ion-card-title>\n  </ion-col>\n  <ion-col push=\".5\">\n          <div class=\"right\">\n  <ion-button slot=\"icon-only\" size=\"small\" fill=\"clear\" (click) = \"updateItem(item)\">\n <ion-icon name=\"create-outline\"></ion-icon>\n  </ion-button>\n</div>\n</ion-col>\n</ion-row>\n    </ion-card-header>\n    <ion-card-content size=\"small\" style=\"padding-top:0; white-space: pre-line;\">\n      {{item.value}}\n    </ion-card-content>\n    <ion-footer>\n      <ion-row>\n        <ion-col>\n\n        </ion-col>\n      </ion-row>\n    </ion-footer>\n  </ion-card>\n</ng-container>\n<!--\n\n\n-->\n\n  <!-- FAB button to go top of page -->\n <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\" >\n    <ion-fab-button (click)=\"scrollToTop()\" color=\"light\">\n      <ion-icon name=\"arrow-up-circle\"></ion-icon>\n    </ion-fab-button>\n  </ion-fab>\n\n</ion-content>";
 
 /***/ })
 
