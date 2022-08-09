@@ -10,27 +10,27 @@ export class DataService {
 
   getData() {
     return this.http.get (
-      "https://awaadcc.github.io/liftbuddy_home.json"
+      "https://wayofvod.com/liftbuddy_home.json"
       );
   }
 
   getChestData() {
-    return this.http.get("https://awaadcc.github.io/liftbuddy_chest.json");
+    return this.http.get("https://wayofvod.com/liftbuddy_chest.json");
   }
 
   getBackData() {
-    return this.http.get("https://awaadcc.github.io/liftbuddy_back.json");
+    return this.http.get("https://wayofvod.com/liftbuddy_back.json");
   }
   getShouldersData() {
-    return this.http.get("https://awaadcc.github.io/liftbuddy_shoulders.json");
+    return this.http.get("https://wayofvod.com/liftbuddy_shoulders.json");
   }
   getArmsData() {
-    return this.http.get("https://awaadcc.github.io/liftbuddy_arms.json");
+    return this.http.get("https://wayofvod.com/liftbuddy_arms.json");
   }
   getLegsData() {
-    return this.http.get("https://awaadcc.github.io/liftbuddy_legs.json");
+    return this.http.get("https://wayofvod.com/liftbuddy_legs.json");
   }
   getWorkoutData() {
-    return this.http.get("https://awaadcc.github.io/liftbuddy_workouts.json")
+    return this.http.get("https://wayofvod.com/liftbuddy_workouts.json")
   }
 }
