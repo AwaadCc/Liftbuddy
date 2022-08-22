@@ -35,4 +35,6 @@ export class Tab1Page implements OnInit {
   goPage2() {
     this.router.navigate(['/tabs/tab1/page2'])
   }
+
+
 }

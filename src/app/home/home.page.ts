@@ -30,7 +30,6 @@ export class HomePage implements OnInit {
       // If it is a NavigationEnd event re-initalise the component
       if (e instanceof NavigationEnd) {
         this.list = await this.storage.get('notes') as StorageItem[];
-        console.log(this.list);
       }
     });
   }

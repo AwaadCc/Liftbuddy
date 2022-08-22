@@ -15,7 +15,8 @@ SwiperCore.use([IonicSlides, Virtual])
 export class Tab2Page {
   @ViewChild(IonContent) private content: IonContent;
   workoutList: any;
-
+  stringlist: string;
+  routineList: any;
   constructor(private iab:InAppBrowser, private router:Router, private dataService: DataService) {}
 
   ngOnInit() {
@@ -40,5 +41,25 @@ export class Tab2Page {
   slides = Array.from({ length: 1000 }).map(
     (el, index) => `Slide ${index + 1}`
   );
+
+  routine(url) {
+    this.dataService.loadSite(url).subscribe(data => {
+      this.routineList = data;
+      this.saveFile();
+    });
+  }
+
+  saveFile() {
+    console.log(this.routineList);
+    this.stringlist = JSON.stringify(this.routineList);
+    console.log(this.stringlist);
+    const fileName = 'routine';
+    // console.log(fileName);
+    var link = document.createElement('a');
+    link.download = fileName;
+    var blob = new Blob([this.stringlist], {type: 'application/json'});
+    link.href = window.URL.createObjectURL(blob);
+    link.click();
+  }
 
 }

@@ -49,7 +49,7 @@
 
 
 
-  <ion-card>
+  <ion-card *ngIf="list?.length < 1">
   <ion-card-header>
     <ion-card-subtitle>Record your lifts</ion-card-subtitle>
     <ion-card-title>Welcome to Tracking!</ion-card-title>
@@ -57,10 +57,10 @@
 
   <ion-card-content>
     An important part of lifting is keeping track of your progress.  We recommended using this tab as a way of logging your workouts.<br><br>
-    The recommended way is to begin by making the first post your routine followed by a new post for every day you log.<br><br> 
-    *If changes are not seens use refresh button<br>
-    *Example post format is in the add page
+    You are free to design it however you want but we recommend using one of the starting programs from the workouts tab!
+    
   </ion-card-content>
+
 </ion-card>
 
   <!-- FAB button to go bottom of page -->

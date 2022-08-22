@@ -31,6 +31,9 @@ export class DataService {
     return this.http.get("https://wayofvod.com/liftbuddy/liftbuddy_legs.json");
   }
   getWorkoutData() {
-    return this.http.get("https://wayofvod.com/liftbuddy/liftbuddy_workouts.json")
+    return this.http.get("https://wayofvod.com/liftbuddy/liftbuddy_workouts.json");
+  }
+  loadSite(site) {
+    return this.http.get(site);
   }
 }

@@ -54,6 +54,14 @@ const routes: Routes = [
     path: 'legs',
     loadChildren: () => import('./legs/legs.module').then( m => m.LegsPageModule)
   },
+  {
+    path: 'tab4',
+    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+  },
+  {
+    path: 'calc',
+    loadChildren: () => import('./calc/calc.module').then( m => m.CalcPageModule)
+  },
 ];
 @NgModule({
   imports: [
